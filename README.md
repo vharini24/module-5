@@ -40,6 +40,7 @@ int main() {
 
 
 ## OUTPUT
+<img width="377" height="166" alt="image" src="https://github.com/user-attachments/assets/891afbdc-4ce6-4e14-b310-7d8e36cc346b" />
 		       	
 
 
