@@ -11,6 +11,34 @@ To write a C Program to find area of rectangle using pointer.
 
 ## PROGRAM
 
+```c
+#include <stdio.h>
+
+int main() {
+    float length, width, area;
+    float *pLength = &length;  
+    float *pWidth = &width;    
+
+   
+    printf("Enter length of the rectangle: ");
+    scanf("%f", pLength);
+
+    printf("Enter width of the rectangle: ");
+    scanf("%f", pWidth);
+
+    
+    area = (*pLength) * (*pWidth);
+
+    printf("Area of the rectangle: %.2f\n", area);
+
+    return 0;
+}
+
+```
+
+
+
+
 ## OUTPUT
 		       	
 
@@ -34,6 +62,37 @@ To write a C Program to print 'WELCOME' using malloc() and free().
 6.	Stop the program.
 
 ## PROGRAM
+```c
+
+#include <stdio.h>
+#include <stdlib.h>  
+#include <string.h>
+
+int main() {
+    char *str;
+
+
+    str = (char *)malloc(8 * sizeof(char));
+
+    if (str == NULL) {  
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    strcpy(str, "WELCOME");
+
+    printf("%s\n", str);
+
+    free(str);
+
+    return 0;
+}
+
+```
+
+
+
+
 
 ## OUTPUT
 
@@ -60,6 +119,42 @@ To write a C Program to store the student information and display it using struc
 4.	Stop the program.
 
 ## PROGRAM
+```c
+
+#include <stdio.h>
+struct Student {
+    char name[50];
+    int roll;
+    float marks;
+};
+
+int main() {
+    struct Student s;
+
+    printf("Enter student name: ");
+    scanf(" %[^\n]", s.name);  
+
+    printf("Enter roll number: ");
+    scanf("%d", &s.roll);
+
+    printf("Enter marks: ");
+    scanf("%f", &s.marks);
+
+    printf("\nStudent Information:\n");
+    printf("Name      : %s\n", s.name);
+    printf("Roll No   : %d\n", s.roll);
+    printf("Marks     : %.2f\n", s.marks);
+
+    return 0;
+}
+
+```
+
+
+
+
+
+
 
 
 ## OUTPUT
@@ -87,6 +182,63 @@ To write a C Program to read and store the data of 3 employees and calculate the
 5.	Stop the program.
 
 ## PROGRAM
+```c
+#include <stdio.h>
+
+struct Employee {
+    char name[50];
+    int id;
+    float basicSalary;
+    float hra;      // House Rent Allowance
+    float da;      // Dearness Allowance
+    float grossSalary;
+};
+
+int main() {
+    struct Employee emp[3];  
+
+    for (int i = 0; i < 3; i++) {
+        printf("\nEnter details for Employee %d:\n", i + 1);
+
+        printf("Name: ");
+        scanf(" %[^\n]", emp[i].name);
+
+        printf("ID: ");
+        scanf("%d", &emp[i].id);
+
+        printf("Basic Salary: ");
+        scanf("%f", &emp[i].basicSalary);
+
+        printf("HRA: ");
+        scanf("%f", &emp[i].hra);
+
+        printf("DA: ");
+        scanf("%f", &emp[i].da);
+
+        emp[i].grossSalary = emp[i].basicSalary + emp[i].hra + emp[i].da;
+    }
+
+    printf("\nEmployee Details and Gross Salary:\n");
+    printf("--------------------------------------------------\n");
+    for (int i = 0; i < 3; i++) {
+        printf("Employee %d:\n", i + 1);
+        printf("Name          : %s\n", emp[i].name);
+        printf("ID            : %d\n", emp[i].id);
+        printf("Basic Salary  : %.2f\n", emp[i].basicSalary);
+        printf("HRA           : %.2f\n", emp[i].hra);
+        printf("DA            : %.2f\n", emp[i].da);
+        printf("Gross Salary  : %.2f\n", emp[i].grossSalary);
+        printf("--------------------------------------------------\n");
+    }
+
+    return 0;
+}
+
+```
+
+
+
+
 
 
  ## OUTPUT
@@ -134,6 +286,54 @@ Step 7: Output Loop (i = 0 to 1):
 Step 8: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+
+struct Student {
+    char name[10];      
+    int rollno;        
+    int subject[5];    
+    int total;         
+    float average;     
+};
+
+int main() {
+    struct Student s[2];  
+    int i, j;
+
+
+    for (i = 0; i < 2; i++) {
+        printf("Enter marks for student %d:\n", i + 1);
+        for (j = 0; j < 5; j++) {
+            printf("Subject %d: ", j + 1);
+            scanf("%d", &s[i].subject[j]);
+        }
+    }
+
+    for (i = 0; i < 2; i++) {
+        s[i].total = 0;
+        for (j = 0; j < 5; j++) {
+            s[i].total += s[i].subject[j];
+        }
+        s[i].average = s[i].total / 5.0;
+    }
+
+    for (i = 0; i < 2; i++) {
+        printf("\nStudent %d:\n", i + 1);
+        printf("Total Marks  : %d\n", s[i].total);
+        printf("Average Marks: %.2f\n", s[i].average);
+    }
+
+    return 0;
+}
+
+```
+
+
+
+
+
 
 
 ## OUTPUT
